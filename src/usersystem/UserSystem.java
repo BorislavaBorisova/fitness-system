@@ -281,13 +281,18 @@ public class UserSystem {
     }
 
     public void visit(String id) {
-        if(ids.containsKey(id)){
-            visits.put(Calendar.getInstance().getTime(), ids.get(id));
-            System.out.println("Successful entry");
-        }else {
+        if (ids.containsKey(id)) {
+            if (ids.get(id).hasActivatedCard()) {
+                visits.put(Calendar.getInstance().getTime(), ids.get(id));
+                System.out.println("Successful entry");
+            } else {
+                System.out.println("First your card must be activated");
+            }
+
+        } else {
             System.out.println("No such member ID");
         }
-        
+
     }
 
     public boolean isCurrentUserAnAdminisrator() {

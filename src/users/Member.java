@@ -23,5 +23,9 @@ public class Member extends User {
     public String getID() {
         return card.getID();
     }
+    
+    public boolean hasActivatedCard(){
+        return card.isActivated();
+    }
 
 }

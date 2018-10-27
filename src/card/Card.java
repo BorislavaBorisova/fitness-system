@@ -36,4 +36,9 @@ public class Card implements Serializable{
     public String getID() {
         return ID;
     }
+    
+    public boolean isActivated() {
+        Calendar calender = Calendar.getInstance();
+        return expirationDate.before(calender.getTime());
+    }
 }
