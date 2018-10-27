@@ -3,6 +3,8 @@ package users;
 import java.io.Serializable;
 import java.util.Stack;
 
+import card.Card;
+
 public class User implements Serializable{
     private String username;
     private String name;
@@ -47,6 +49,10 @@ public class User implements Serializable{
         printBasicInfo();
         System.out.println("Weight: " + weight);
         System.out.println("Height: " + height);
+    }    
+
+    public void printInfoForAdmins() {
+        printDetailedInfo();      
     }
 
     public void addMessage(StringBuilder message) {
