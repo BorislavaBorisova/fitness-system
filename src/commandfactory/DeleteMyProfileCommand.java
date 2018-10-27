@@ -15,6 +15,7 @@ public class DeleteMyProfileCommand implements Command {
             if (isValid(arguments)) {
                 us.deleteMyProfile();
                 us.writeUsers();
+                us.writeIDs();
             } else {
                 System.out.println("Invalid input");
             }

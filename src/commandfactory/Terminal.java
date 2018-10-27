@@ -25,6 +25,9 @@ public class Terminal {
         factory.put("writeMessage", CommandType.WriteMessage);
         factory.put("seeAllNewMessages", CommandType.SeeAllMessages);
         factory.put("logout", CommandType.Logout);
+        factory.put("addEquipment", CommandType.AddEquipment);       
+        factory.put("activate", CommandType.ActivateCard);
+        factory.put("visit", CommandType.Visit);
     }
 
     public void useFitnessSystem() {

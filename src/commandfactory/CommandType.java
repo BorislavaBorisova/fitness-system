@@ -48,6 +48,27 @@ public enum CommandType {
         Command getCommand() {
             return new LogoutCommand();
         }
+    },
+
+    Visit() {
+        @Override
+        Command getCommand() {
+            return new VisitCommand();
+        }
+    },
+
+    AddEquipment() {
+        @Override
+        Command getCommand() {
+            return new AddEquipmentCommand();
+        }
+    },
+
+    ActivateCard() {
+        @Override
+        Command getCommand() {
+            return new ActivateCardCommand();
+        }
     };
 
     abstract Command getCommand();

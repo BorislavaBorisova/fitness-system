@@ -4,24 +4,22 @@ import java.util.Scanner;
 
 import usersystem.UserSystem;
 
-public class LogoutCommand implements Command {
+public class VisitCommand implements Command {
     boolean isValid(String[] arguments) {
-        return arguments.length == 1;
+        return arguments.length == 2;
     }
 
     @Override
     public void execute(UserSystem us, String[] arguments, String input, Scanner scaner) {
         if (isValid(arguments)) {
-            if (us.isLogged()) {
-                us.logout();
-                System.out.println("Successfully logged out");
+            if (us.isCurrentUserAnAdminisrator()) {
+                us.visit(arguments[1]);
+                us.writeVisits();
             } else {
-                System.out.println("You are not signed in");
+                System.out.println("You must be an Administrator to use this command");
             }
         } else {
             System.out.println("Invalid input");
         }
-
     }
-
 }

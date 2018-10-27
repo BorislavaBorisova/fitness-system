@@ -47,7 +47,7 @@ public class SignUpCommand implements Command {
                 System.out.println("Enter \"Member\" of \"Instructor\" ");
                 type = scanner.nextLine();
             }
-            
+
             System.out.print("Username: ");
             String username = scanner.nextLine();
             while (!isValidUsername(username) || us.userWithThisNameExists(username)) {
@@ -85,29 +85,30 @@ public class SignUpCommand implements Command {
 
             System.out.print("Age: ");
             String ageStr = scanner.nextLine();
-            while (!ageStr.matches("\\d+" ) || !isValidAge(Integer.parseInt(ageStr))) {
+            while (!ageStr.matches("\\d+") || !isValidAge(Integer.parseInt(ageStr))) {
                 System.out.println("Invalid age. Try again");
                 ageStr = scanner.nextLine();
             }
 
             System.out.print("Weight: ");
             String weight = scanner.nextLine();
-            while (!weight.matches("\\d+(\\.\\d+)?" ) || !isValidWeight(Double.parseDouble(weight))) {
+            while (!weight.matches("\\d+(\\.\\d+)?") || !isValidWeight(Double.parseDouble(weight))) {
                 System.out.println("Invalid weight. Try again");
                 weight = scanner.nextLine();
             }
 
             System.out.print("Height: ");
             String height = scanner.nextLine();
-            while (!height.matches("\\d+(\\.\\d+)?" ) ||!isValidHeight(Double.parseDouble(height))) {
+            while (!height.matches("\\d+(\\.\\d+)?") || !isValidHeight(Double.parseDouble(height))) {
                 System.out.println("Invalid height. Try again");
                 height = scanner.nextLine();
             }
 
             if (type.equals("Member")) {
-                us.signUpUser(username, password, name, surname, email, Integer.parseInt(ageStr),
+                us.signUpMember(username, password, name, surname, email, Integer.parseInt(ageStr),
                         Double.parseDouble(weight), Double.parseDouble(height));
                 us.writeUsers();
+                us.writeIDs();
                 System.out.println("You have signed up successfully");
             } else {
                 System.out.println("Enter code for instructors");
@@ -119,11 +120,9 @@ public class SignUpCommand implements Command {
 
                 System.out.print("Fitness: ");
                 String fitness = scanner.nextLine();
-                fitness = scanner.nextLine();
 
                 System.out.print("Description: ");
                 String description = scanner.nextLine();
-                description = scanner.nextLine();
 
                 us.signUpInstructor(username, password, name, surname, email, Integer.parseInt(ageStr),
                         Integer.parseInt(weight), Integer.parseInt(height), fitness, description);
