@@ -14,7 +14,6 @@ public class VisitCommand implements Command {
         if (isValid(arguments)) {
             if (us.isCurrentUserAnAdminisrator()) {
                 us.visit(arguments[1]);
-                us.writeVisits();
             } else {
                 System.out.println("You must be an Administrator to use this command");
             }

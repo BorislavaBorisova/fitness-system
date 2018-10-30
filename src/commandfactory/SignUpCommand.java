@@ -126,7 +126,7 @@ public class SignUpCommand implements Command {
 
                 us.signUpInstructor(username, password, name, surname, email, Integer.parseInt(ageStr),
                         Integer.parseInt(weight), Integer.parseInt(height), fitness, description);
-                us.writeUsers();
+               
                 System.out.println("You have signed up successfully");
             }
         }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Equipment implements Serializable{
+public class Equipment implements Serializable {
     Date dateLastAdded;
     String typeOfEquipment;
     int count;

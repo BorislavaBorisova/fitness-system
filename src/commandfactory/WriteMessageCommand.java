@@ -15,7 +15,6 @@ public class WriteMessageCommand implements Command {
         if (isValid(arguments)) {
             if (us.userWithThisNameExists(arguments[1])) {    
                 us.writeMessage(arguments[1], input.split("\"")[1]);
-                us.writeUsers();
             } else {
                 System.out.println("A user with this username does not exist");
             }

@@ -1,8 +1,8 @@
 package users;
 
-import javax.swing.plaf.basic.BasicTreeUI.SelectionModelPropertyChangeHandler;
+import java.io.Serializable;
 
-public class Instructor extends User {
+public class Instructor extends User implements Serializable {
     private String fitness;
     private String description;
 

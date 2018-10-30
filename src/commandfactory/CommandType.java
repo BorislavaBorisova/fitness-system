@@ -1,73 +1,80 @@
 package commandfactory;
 
 public enum CommandType {
-    SignUp() {
+    SIGN_UP() {
         @Override
         Command getCommand() {
             return new SignUpCommand();
         }
     },
 
-    SignIn() {
+    SIGN_IN() {
         @Override
         Command getCommand() {
             return new SignInCommand();
         }
     },
 
-    DeleteMyProfile() {
+    DELETE_MY_PROFILE() {
         @Override
         Command getCommand() {
             return new DeleteMyProfileCommand();
         }
     },
 
-    Show() {
+    SHOW() {
         @Override
         Command getCommand() {
             return new ShowCommand();
         }
     },
 
-    WriteMessage() {
+    WRITE_MESSAGE() {
         @Override
         Command getCommand() {
             return new WriteMessageCommand();
         }
     },
 
-    SeeAllMessages() {
+    SEE_ALL_MESSAGES() {
         @Override
         Command getCommand() {
             return new SeeAllMessagesCommand();
         }
     },
 
-    Logout() {
+    LOGOUT() {
         @Override
         Command getCommand() {
             return new LogoutCommand();
         }
     },
 
-    Visit() {
+    VISITS() {
         @Override
         Command getCommand() {
             return new VisitCommand();
         }
     },
 
-    AddEquipment() {
+    ADD_EQUIPMENT() {
         @Override
         Command getCommand() {
             return new AddEquipmentCommand();
         }
     },
 
-    ActivateCard() {
+    ACTIVATE_CARD() {
         @Override
         Command getCommand() {
             return new ActivateCardCommand();
+        }
+    },
+
+    SHOW_STATISTICS() {
+        @Override
+        Command getCommand() {
+            return new ShowStatisticsCommand();
         }
     };
 

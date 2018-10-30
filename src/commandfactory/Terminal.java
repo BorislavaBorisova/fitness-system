@@ -18,16 +18,17 @@ public class Terminal {
     }
 
     static {
-        factory.put("signUp", CommandType.SignUp);
-        factory.put("signIn", CommandType.SignIn);
-        factory.put("deleteMyProfile", CommandType.DeleteMyProfile);
-        factory.put("show", CommandType.Show);
-        factory.put("writeMessage", CommandType.WriteMessage);
-        factory.put("seeAllNewMessages", CommandType.SeeAllMessages);
-        factory.put("logout", CommandType.Logout);
-        factory.put("addEquipment", CommandType.AddEquipment);       
-        factory.put("activate", CommandType.ActivateCard);
-        factory.put("visit", CommandType.Visit);
+        factory.put("signUp", CommandType.SIGN_UP);
+        factory.put("signIn", CommandType.SIGN_IN);
+        factory.put("deleteMyProfile", CommandType.DELETE_MY_PROFILE);
+        factory.put("show", CommandType.SHOW);
+        factory.put("writeMessage", CommandType.WRITE_MESSAGE);
+        factory.put("seeAllNewMessages", CommandType.SEE_ALL_MESSAGES);
+        factory.put("logout", CommandType.LOGOUT);
+        factory.put("addEquipment", CommandType.ADD_EQUIPMENT);
+        factory.put("activate", CommandType.ACTIVATE_CARD);
+        factory.put("visit", CommandType.VISITS);
+        factory.put("showStatistics", CommandType.SHOW_STATISTICS);
     }
 
     public void useFitnessSystem() {

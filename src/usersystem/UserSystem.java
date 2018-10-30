@@ -86,6 +86,7 @@ public class UserSystem {
         Instructor newInstructor = new Instructor(setUsername, setPassword, setName, setSurname, setEmail, setAge,
                 setWeight, setHeight, setFitness, setDescription);
         users.put(setUsername, newInstructor);
+        writeUsers();
     }
 
     public void signUpMember(String setUsername, String setPassword, String setName, String setSurname, String setEmail,
@@ -94,9 +95,11 @@ public class UserSystem {
         Card card = new Card();
         Member newUser = new Member(setUsername, setPassword, setName, setSurname, setEmail, setAge, setWeight,
                 setHeight, card);
-        users.put(setUsername, newUser);
         card.setOwner(newUser);
         ids.put(card.getID(), newUser);
+        writeIDs();
+        users.put(setUsername, newUser);
+        writeUsers();
     }
 
     private void signUpAdministrator(Administrator administrator) {
@@ -109,6 +112,9 @@ public class UserSystem {
             if (password.hashCode() == users.get(username).getPassword()) {
                 currentUser = users.get(username);
                 System.out.println("You have signed in successfully");
+                if (isCurrentUserAMember()) {
+                    ((Member) currentUser).daysLeft();
+                }
                 System.out.println("Here is a list of new equipment at the gym:");
 
                 Calendar cal = Calendar.getInstance();
@@ -134,8 +140,10 @@ public class UserSystem {
 
     public void deleteMyProfile() {
         users.remove(currentUser.getUsername());
-        if (currentUser instanceof Member) {
+        writeUsers();
+        if (isCurrentUserAMember()) {
             ids.remove(((Member) currentUser).getID());
+            writeIDs();
         }
 
         currentUser = null;
@@ -155,11 +163,15 @@ public class UserSystem {
 
     public void writeMessage(String username, String message) {
         users.get(username).addMessage(new StringBuilder(currentUser.getUsername().toString() + ": " + (message)));
+        writeIDs();
+        writeUsers();
         System.out.println("Message sent");
     }
 
     public void seeAllMessages() {
         currentUser.seeAllNewMessages();
+        writeIDs();
+        writeUsers();
     }
 
     public void logout() {
@@ -209,7 +221,8 @@ public class UserSystem {
     public void activate(String id) {
         if (ids.containsKey(id)) {
             ((Member) ids.get(id)).activate();
-            System.out.println("Card successfully activated");
+            writeIDs();
+            writeUsers();
         } else {
             System.out.println("This member does not exist");
         }
@@ -284,6 +297,10 @@ public class UserSystem {
         if (ids.containsKey(id)) {
             if (ids.get(id).hasActivatedCard()) {
                 visits.put(Calendar.getInstance().getTime(), ids.get(id));
+                ids.get(id).visit();
+                writeIDs();
+                writeUsers();
+                writeVisits();
                 System.out.println("Successful entry");
             } else {
                 System.out.println("First your card must be activated");
@@ -297,6 +314,14 @@ public class UserSystem {
 
     public boolean isCurrentUserAnAdminisrator() {
         return currentUser instanceof Administrator;
+    }
+
+    public boolean isCurrentUserAMember() {
+        return currentUser instanceof Member;
+    }
+
+    public void showStatistics() {
+        currentUser.showStatistics();
     }
 
     public static void main(String[] args) {

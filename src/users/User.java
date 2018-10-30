@@ -64,5 +64,7 @@ public class User implements Serializable{
             System.out.println(messages.pop());
         }
     }
+    
+    public void showStatistics() {}
 
 }
