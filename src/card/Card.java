@@ -34,7 +34,7 @@ public class Card implements Serializable {
         if (expirationDate == null || expirationDate.before(calendar.getTime())) {
             Calendar cal = Calendar.getInstance();
             cal.roll(Calendar.MONTH, 1);
-            System.out.println(cal.getTime());
+            
             expirationDate = cal.getTime();
             timesActivated++;
             System.out.println("Card successfully activated");
@@ -48,7 +48,6 @@ public class Card implements Serializable {
     }
 
     public boolean isActivated() {
-        System.out.println(expirationDate);
         if (expirationDate == null) {
             return false;
         } else {
